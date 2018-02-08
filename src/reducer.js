@@ -1,40 +1,27 @@
 
 
 let initialState = {
+    searchTerm: null,
     msnbc: {
         site: 'msnbc',
         mobileVis: false,
-        wordCloud: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Thank-you-word-cloud.jpg/800px-Thank-you-word-cloud.jpg',
+        mainWords: [{text: 'Test', value: 1000}, {text: 'Test', value: 1000}, {text: 'Test', value: 1000}],
         headlines: [
-            {headlineText: 'Text  ', url: 'www.msnbc.com'},
-            {headlineText: 'Text  ', url: 'www.msnbc.com'},
-            {headlineText: 'Text  ', url: 'www.msnbc.com'},
-            {headlineText: 'Text  ', url: 'www.msnbc.com'},
-            {headlineText: 'Text  ', url: 'www.msnbc.com'},
         ]
     },
     cnn: {
         site: 'cnn',
         mobileVis: true,
-        wordCloud: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Thank-you-word-cloud.jpg/800px-Thank-you-word-cloud.jpg',
+        mainWords: [{text: 'Test', value: 1000}, {text: 'Test', value: 1000}, {text: 'Test', value: 1000}],
         headlines: [
-            {headlineText: 'Text  ', url: 'www.Cnn.com'},
-            {headlineText: 'Text  ', url: 'www.Cnn.com'},
-            {headlineText: 'Text  ', url: 'www.Cnn.com'},
-            {headlineText: 'Text  ', url: 'www.Cnn.com'},
-            {headlineText: 'Text  ', url: 'www.Cnn.com'}
         ]
     },
     fox: {
         site: 'fox',
         mobileVis: false,
-        wordCloud: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Thank-you-word-cloud.jpg/800px-Thank-you-word-cloud.jpg',
+        mainWords: [{text: 'Test', value: 1000}, {text: 'Test', value: 1000}, {text: 'Test', value: 1000}],
         headlines: [
-            {headlineText: 'Text ', url: 'www.foxnews.com'},
-            {headlineText: 'Text ', url: 'www.foxnews.com'},
-            {headlineText: 'Text ', url: 'www.foxnews.com'},
-            {headlineText: 'Text ', url: 'www.foxnews.com'},
-            {headlineText: 'Text ', url: 'www.foxnews.com'},
+          
         ]
     }
 }
@@ -48,11 +35,14 @@ export const reducer =  (state = initialState, action) =>{
                 siteArray.splice(i, 1)
             }
         }
-        state = Object.assign({}, state, state[action.site].mobileVis = true, 
+       return Object.assign({}, state, state[action.site].mobileVis = true, 
             state[siteArray[0]].mobileVis = false, state[siteArray[1]].mobileVis = false
-
         )
+    }
 
+    if(action.type === 'POPULATE_STATE'){
+        console.log(`${state[action.site].headlines}`)
+        return Object.assign({}, state, state[action.site].headlines = action.headlinesArray, state[action.site].mainWords = action.mainWords)
     }
 return state;
 }

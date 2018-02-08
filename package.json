@@ -3,11 +3,17 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "count-words-occurrence": "^1.0.0",
+    "newsapi": "^2.2.0",
     "react": "^16.2.0",
+    "react-d3-cloud": "^0.6.0",
     "react-dom": "^16.2.0",
     "react-redux": "^5.0.6",
     "react-scripts": "1.1.0",
-    "redux": "^3.7.2"
+    "redux": "^3.7.2",
+    "webhoseio": "^1.0.2",
+    "word-count": "^0.2.2",
+    "zingchart": "^2.6.3"
   },
   "scripts": {
     "start": "react-scripts start",
