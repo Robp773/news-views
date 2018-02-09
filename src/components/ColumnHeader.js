@@ -5,8 +5,9 @@ import WordCloud from 'react-d3-cloud';
 export default class ColumnHeader extends React.Component{
     render(){   
         const data = this.props.mainWords
-        const fontSizeMapper = word => 20
-        const rotate = word => word.value % 90
+        const fontSizeMapper = word => word.value * 15
+       
+        const rotate = word => 0
 
           let wordCluster = <WordCloud
           width={450}

@@ -27,7 +27,6 @@ let initialState = {
 }
 
 export const reducer =  (state = initialState, action) =>{
-
     if(action.type === 'CHANGE_VIS'){
         let siteArray = ['msnbc', 'cnn', 'fox']
         for(let i =0; i<siteArray.length; i++){
@@ -41,7 +40,6 @@ export const reducer =  (state = initialState, action) =>{
     }
 
     if(action.type === 'POPULATE_STATE'){
-        console.log(`${state[action.site].headlines}`)
         return Object.assign({}, state, state[action.site].headlines = action.headlinesArray, state[action.site].mainWords = action.mainWords)
     }
 return state;

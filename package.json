@@ -13,6 +13,7 @@
     "redux": "^3.7.2",
     "webhoseio": "^1.0.2",
     "word-count": "^0.2.2",
+    "wordfrequenter": "0.0.4",
     "zingchart": "^2.6.3"
   },
   "scripts": {

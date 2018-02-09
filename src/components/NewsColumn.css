@@ -2,6 +2,9 @@
 .hidden{
     display: none;
   }
+  .visible{
+    display: block;
+  }
 
 @media screen and (min-width: 550px) {
 

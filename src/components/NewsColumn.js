@@ -6,23 +6,17 @@ import ColumnText from './ColumnText';
 import {populateState} from '../actions';
 import {connect} from 'react-redux';
 import NewsAPI  from 'newsapi';
+import Freq from 'wordfrequenter';
 
 export class NewsColumn extends React.Component{
 super(props){
     constructor(props);
 }
 componentWillMount(){
-// msnbc
-// id: 'msnbc'
-// name: 'MSNBC'
 
-// fox
-// id: "fox-news"
-// name: "Fox News"
-
-// cnn
-// id: "cnn"
-//  name: "CNN"
+// msnbc id: 'msnbc' name: 'MSNBC'
+// fox id: "fox-news" name: "Fox News"
+// cnn id: "cnn"  name: "CNN"
 
 const newsapi = new NewsAPI('a8bbe0f664d741539f4eeb966fa99339');
 let titleAndUrl = [];
@@ -37,13 +31,14 @@ newsapi.v2.everything({
     descriptionArray.push(response.articles[i].description)
     titleAndUrl.push({headlineText: response.articles[i].title, url: response.articles[i].url})
   }
-  let joinedDescriptions = descriptionArray.join('').split(' ');
-
+let joinedDescriptions = descriptionArray.join('').split(' ');
+const wordCloudArray = new Freq(joinedDescriptions)
+let result = wordCloudArray.list() 
+let initializedArray = []
+for(let i = 0; i<result.length; i++){
+    initializedArray.push({text: result[i].word, value: result[i].count})
+}
 //   needs filtering
-
-         let readiedDesc =  joinedDescriptions.map((item)=>{
-              return {text: item, value: 1000}
-          })
 
 // ******
 // Uses webhose.io to get full text from article which enables word cloud
@@ -65,11 +60,10 @@ newsapi.v2.everything({
 //           output.posts.map((post)=>{          
 //             outputArray.push({headlineText: post.thread.title, url: post.url})
 //           })  
-this.props.dispatch(populateState((this.props.site).toLowerCase(), titleAndUrl, readiedDesc))
+this.props.dispatch(populateState((this.props.site).toLowerCase(), titleAndUrl, initializedArray))
 this.forceUpdate()
     })
 }
-
     render(){    
         // setting variable based on the store's 'mobileVis' value
         // to toggle visibility for columns between different screensizes
