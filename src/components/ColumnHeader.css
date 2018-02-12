@@ -2,6 +2,18 @@
     width: 95%;
 }
 .header{
-    margin: 3px;
-    background: darkgrey;
+    background: rgba(0,0,0,.5)
 }
+.header > h2{
+    padding: 3px;
+}
+
+h2{
+    margin: 3px;
+    font-size: 35px;
+}
+.headerImg{
+    width: 100px;
+    height: 55px;
+}
+
