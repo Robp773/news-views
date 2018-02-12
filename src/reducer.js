@@ -1,28 +1,24 @@
 
 
 let initialState = {
-    searchTerm: null,
     msnbc: {
         site: 'msnbc',
         mobileVis: false,
-        mainWords: [{text: 'Test', value: 1000}, {text: 'Test', value: 1000}, {text: 'Test', value: 1000}],
-        headlines: [
-        ]
+        mainWords: [],
+        headlines: [],
     },
     cnn: {
         site: 'cnn',
         mobileVis: true,
-        mainWords: [{text: 'Test', value: 1000}, {text: 'Test', value: 1000}, {text: 'Test', value: 1000}],
-        headlines: [
-        ]
+        mainWords: [],
+        headlines: [],
+
     },
     fox: {
         site: 'fox',
         mobileVis: false,
-        mainWords: [{text: 'Test', value: 1000}, {text: 'Test', value: 1000}, {text: 'Test', value: 1000}],
-        headlines: [
-          
-        ]
+        mainWords: [],
+        headlines: [],
     }
 }
 
@@ -39,8 +35,16 @@ export const reducer =  (state = initialState, action) =>{
         )
     }
 
-    if(action.type === 'POPULATE_STATE'){
-        return Object.assign({}, state, state[action.site].headlines = action.headlinesArray, state[action.site].mainWords = action.mainWords)
+    if(action.type === 'POPULATE_STATE'){        
+        return Object.assign({}, state, state[action.site].headlines = action.headlinesArray, 
+            state[action.site].mainWords = action.mainWords)
+    }
+
+    if(action.type === 'UPDATE_OPINION'){
+        let lowerCaseSite = (action.site).toLowerCase();
+        let index = action.index
+        // console.log(state[lowerCaseSite].headlines[index].opinion = action.opinion)
+        return Object.assign({}, state, ...state[lowerCaseSite].headlines[index].opinion = action.opinion)
     }
 return state;
 }

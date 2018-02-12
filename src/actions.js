@@ -7,5 +7,12 @@ export const populateState = (site, headlinesArray, mainWords)=>({
     type: "POPULATE_STATE",
     site: site,
     headlinesArray: headlinesArray,
-    mainWords: mainWords
+    mainWords: mainWords,
 });
+
+export const updateOpinion = (index, opinion, site)=>({
+    type: 'UPDATE_OPINION',
+    index: index,
+    opinion: opinion,
+    site: site
+})
