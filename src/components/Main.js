@@ -4,22 +4,25 @@ import NewsColumn from './NewsColumn';
 import Search from './Search';
 import NetworkButtons from './NetworkButtons';
 import {connect} from 'react-redux';
-import {populateState} from '../actions';
-import webhoseio from 'webhoseio';
 
 export class Main extends React.Component{
 super(props){
     constructor(props);
 }
+componentWillMount(){
+
+}
 render(){
         return (
             <div className='main'>
             <h1>News Views</h1>
-                <Search/>
+                <Search fullState={this.props.fullState}/>
                 <NetworkButtons/>
-                <NewsColumn site='MSNBC' searchTerm={this.props.searchTerm} siteUrl='msnbc' stateObj={this.props.msnbc}/>
-                <NewsColumn site='CNN' searchTerm={this.props.searchTerm} siteUrl='cnn'stateObj={this.props.cnn} />
-                <NewsColumn site='FOX' searchTerm={this.props.searchTerm} siteUrl='fox-news' stateObj={this.props.fox} />
+                <div className='columnParent'>
+                    <NewsColumn site='MSNBC' siteUrl='msnbc' stateObj={this.props.msnbc}/>
+                    <NewsColumn site='CNN'  siteUrl='cnn'stateObj={this.props.cnn} />
+                    <NewsColumn site='FOX'  siteUrl='fox-news' stateObj={this.props.fox} />
+                </div>
             </div>
         )
     }
@@ -30,7 +33,6 @@ const mapStateToProps = state => ({
     msnbc: state.msnbc,
     cnn: state.cnn,
     fox: state.fox,
-    searchTerm: state.searchTerm
 });
 
 export default connect(mapStateToProps)(Main);
