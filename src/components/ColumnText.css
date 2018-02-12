@@ -1,0 +1,71 @@
+.headline{
+    font-size: 20px;
+    background: rgba(0,0,0,.35);
+    border: 1px solid black;
+    height: 25px;
+    margin-top: 3px;
+    margin-bottom: 3px;
+    overflow: -webkit-paged-x;
+    overflow-x: hidden;
+    transition: ease-in-out .5s; 
+    transition-delay: .15s;
+    /* transition: background ease-in-out .25s; */
+}
+
+
+.headline:hover{
+background: rgba(0,0,0,.55);
+height: 15vh;
+overflow: auto;
+
+}
+
+.headline:hover .borderDiv{
+    width: 100%;
+}
+.headline:hover .hideShow{
+    opacity: 1;
+}
+.borderDiv{
+    margin: auto;
+    width: 0%;
+    border-bottom: 3px solid red;
+    transition-delay: .25s;
+    transition: .5s;
+}
+
+.headlineLink{  
+    display: inline-block;
+    width: fit-content;
+    text-decoration: none;
+    color: white;
+    vertical-align: middle;
+    transition: .5 ease-in-out;
+}
+.headlineLink:hover{
+    color: red;
+}
+
+
+.description{
+    margin: 5px;
+    font-size: 15px;
+    color: white;
+}
+
+.sentimentBtn{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    display: block;
+
+}
+
+.hideShow{
+    opacity: 0;
+    transition: .5s;
+}
+.sentiment{
+    background: red;
+}

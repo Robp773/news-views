@@ -1,22 +1,40 @@
 import React from 'react';
-import './ColumnText';
-export default class ColumnHeader extends React.Component{
-    super(props){
-        constructor(props);
+import './ColumnText.css';
+import SentimentBtn from './SentimentBtn'
+
+export default class ColumnText extends React.Component{
+   
+        constructor(props){
+            super(props)
     }
-    render(){
     
-        
+    render(){
+        let result;
         let headlines = this.props.headlines;
         let headlinesArray = [];
-  
-        let key = 0;
-        headlines.map((item)=>{       
-        headlinesArray.push(<h3 key={(Math.floor((Math.random() * 100) + 1) + key)}><a href={item.url}>{item.headlineText}</a></h3>)
-        return key++
-        })
+        for(let i=0;i<headlines.length;i++){
+            if(headlines[i].opinion !=  undefined){
+                result = headlines[i].opinion
+            }        
+
+        headlinesArray.push(
+        <div className='headline'key={`${this.props.site}${i}`}>
+
+            <a  className='headlineLink'href={headlines[i].url}>
+            {headlines[i].headlineText}
+            <div className='borderDiv'></div>            
+            </a>
+
+            <SentimentBtn site = {this.props.site} index={i} url={headlines[i].url} opinion={headlines[i].opinion}/> 
+
+            <div className='hideShow description'>{headlines[i].description}</div> 
+        </div>
+        )
+
+        }
         return (
                 <div>{headlinesArray}</div>
                ) 
             }
 }
+
