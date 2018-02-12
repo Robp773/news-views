@@ -1,20 +1,40 @@
-
-.hidden{
-    display: none;
-  }
-  .visible{
+  .column{
     display: block;
   }
+  @media screen and (min-width: 550px) {
+    .column{
+      display: inline-block;
+      width: 30%;
+    }
 
-@media screen and (min-width: 550px) {
+  }
+
+  /* fullscreen desktop */
+@media screen and (min-width: 1000px) {
 
 .column{
+    background: rgba(0,0,0,.5);
+    border: 1px solid black;
+    text-align: center;
     display: inline-block;
-    width: 32%;
-    background: gray;
+    width: 320px; 
+    padding-left: 2px;
+    padding-right: 2px;
+    transition: .5s ease-in-out;
+  }
+
+  .column:hover{
+
+    width: 620px;
+    position: relative;
+   
   }
 
   .hidden{
     display: inline-block;
   }
+}
+@media screen and (min-width: 645px) {
+.column{
+}
 }
