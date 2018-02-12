@@ -1,3 +1,21 @@
 .searchForm{
     margin: 5px;
 }
+
+.searchForm > button, input{
+    height: 35px;
+    border: 0;
+    padding-bottom: 0;
+    padding-top: 0;
+}
+
+.searchForm > button{
+    width: 75px;
+    margin-left: 3px;
+}
+
+.searchForm > input{
+    width: 30%;
+    padding-left: 5px;
+    padding-right: 5px;
+}
