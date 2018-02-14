@@ -12,7 +12,11 @@
     /* transition: background ease-in-out .25s; */
 }
 
-
+.linkContainer{
+    text-align: center;
+    width: 85%;
+    margin: auto;
+}
 .headline:hover{
 background: rgba(0,0,0,.55);
 height: 15vh;
@@ -35,6 +39,7 @@ overflow: auto;
 }
 
 .headlineLink{  
+    margin: auto;
     display: inline-block;
     width: fit-content;
     text-decoration: none;

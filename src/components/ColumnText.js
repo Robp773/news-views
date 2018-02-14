@@ -18,13 +18,13 @@ export default class ColumnText extends React.Component{
             }        
 
         headlinesArray.push(
-        <div className='headline'key={`${this.props.site}${i}`}>
-
-            <a  className='headlineLink'href={headlines[i].url}>
-            {headlines[i].headlineText}
-            <div className='borderDiv'></div>            
-            </a>
-
+        <div className='headline' key={`${this.props.site}${i}`}>
+            <div className='linkContainer'>
+                <a  className='headlineLink' href={headlines[i].url}>
+                    {headlines[i].headlineText}
+                    <div className='borderDiv'></div>            
+                </a>
+            </div>
             <SentimentBtn site = {this.props.site} index={i} url={headlines[i].url} opinion={headlines[i].opinion}/> 
 
             <div className='hideShow description'>{headlines[i].description}</div> 
