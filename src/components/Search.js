@@ -12,6 +12,13 @@ super(props){
 }
 
 searchSent(query){
+    if(query ===''){
+       return alert('no')
+    }
+
+    if(this.props.setInitialSearch){
+        this.props.setInitialSearch()
+    }
 // Search the three news networks for headlines on the searched term
 const newsapi = new NewsAPI('a8bbe0f664d741539f4eeb966fa99339');
 let sourceArray = ['msnbc', 'cnn', 'fox-news']
@@ -53,21 +60,22 @@ for(let j=0; j<sourceArray.length; j++){
       var filteredArray = initializedArray.filter(function (el) {
           return wordFilter.indexOf(el.text) <= -1; 
         });
-        
-
-
-  
         this.props.dispatch(populateState(siteArray[j], titleAndUrl, filteredArray))
       })  
 }
-
-
 }
 
 render(){
+    let formClass;
+    if(this.props.setInitialSearch){
+         formClass = 'initialForm';
+    }
+    else{
+        formClass = 'searchForm';
+    }
     return(
-        <form className='searchForm' onSubmit={(e)=>{e.preventDefault(), this.searchSent(this.textInput.value)}}>
-            <input ref={(input)=>{this.textInput = input}} type='text' placeholder='Enter your search term here...'/>
+        <form className={formClass} onSubmit={(e)=>{e.preventDefault(), this.searchSent(this.textInput.value)}}>
+            <input className={this.props.size} ref={(input)=>{this.textInput = input}} type='text' placeholder='Enter your search term here...'/>
             <button type='submit'>Search</button>
         </form>
     )
