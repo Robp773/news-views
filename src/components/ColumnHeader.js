@@ -16,6 +16,7 @@ shouldComponentUpdate(nextProps) {
   }
 
     render(){   
+   
         let headerImage;
         if(this.props.site === 'MSNBC'){
             headerImage = 'https://www.charismanews.com/images/stories/2016/06/MSNBC-Logo.jpg';
@@ -39,12 +40,16 @@ shouldComponentUpdate(nextProps) {
             fontSizeMapper={fontSizeMapper}
             rotate={rotate}
           />
-
+          let noResults;
+        if(this.props.noResults){
+            noResults = <h2 className='noResults'>No Results</h2>
+        }
         return (
         <div className='header'>
             <h2>
                 <img className='headerImg' src={`${headerImage}`}/>
             </h2>
+            {noResults}
             {wordCluster}
         </div>
     ) 

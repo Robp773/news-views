@@ -16,4 +16,6 @@ h2{
     width: 100px;
     height: 55px;
 }
-
+.noResults{
+    color: white;
+}
