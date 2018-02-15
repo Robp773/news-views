@@ -8,16 +8,20 @@ super(props){
     constructor(props);
 }
     render(){ 
-         return(
+        if(this.props.stateObj.headlines.length === 0){
+            return (
+                <div className='column'>
+                <ColumnHeader noResults={true} site={this.props.site} mainWords={this.props.stateObj.mainWords}/>
+                </div>
+            )
+        }
+
+            return(
                     <div className='column'>
-                        <ColumnHeader 
-                        site={this.props.site} 
-                        mainWords={this.props.stateObj.mainWords}
-                        opinion={this.props.stateObj.opinion}
-                        />
+                        <ColumnHeader site={this.props.site} mainWords={this.props.stateObj.mainWords}/>
                         <ColumnText  site={this.props.site} headlines={this.props.stateObj.headlines}/>
                     </div>
-                )
+                )         
             }
 }
 
