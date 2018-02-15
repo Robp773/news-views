@@ -19,6 +19,24 @@ initialSearch(){
 }
 
 render(){
+    // first search
+    // console.log(this.props.fullState)
+
+    if(this.props.fullState.loading){
+        return (
+                    <div className="overlay-loader">
+                        <div className="loader">
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </div>
+                    </div>
+        )
+    }
     if(!this.state.initialSearch){
         return (
                 <div className='main '>
@@ -26,15 +44,16 @@ render(){
                     <Search setInitialSearch={this.initialSearch} size='initialSize' fullState={this.props.fullState}/>
                 </div>)
     }
+    // following searches
         return (
             <div className='main'>
                 <h1>News Views</h1>
                 <Search setInitialSearch={false} size='searchedSize' fullState={this.props.fullState}/>
                 <NetworkButtons/>
                 <div className='columnParent'>
-                    <NewsColumn site='MSNBC' siteUrl='msnbc' stateObj={this.props.msnbc}/>
-                    <NewsColumn site='CNN'  siteUrl='cnn'stateObj={this.props.cnn} />
-                    <NewsColumn site='FOX'  siteUrl='fox-news' stateObj={this.props.fox} />
+                    <NewsColumn loading={this.props.fullState.loading} site='MSNBC' siteUrl='msnbc' stateObj={this.props.msnbc}/>
+                    <NewsColumn loading={this.props.fullState.loading} site='CNN' siteUrl='cnn'stateObj={this.props.cnn} />
+                    <NewsColumn loading={this.props.fullState.loading} site='FOX' siteUrl='fox-news' stateObj={this.props.fox} />
                 </div>
             </div>
         )
