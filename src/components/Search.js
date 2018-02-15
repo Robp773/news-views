@@ -1,7 +1,7 @@
 import React from 'react';
 import './Search.css';
 import {connect} from 'react-redux';
-import {populateState} from '../actions';
+import {populateState, loading, emptyColumn} from '../actions';
 import NewsAPI  from 'newsapi';
 import Freq from 'wordfrequenter';
 import https from 'https'
@@ -12,10 +12,10 @@ super(props){
 }
 
 searchSent(query){
-    if(query ===''){
+    if(query === ''){
        return alert('no')
     }
-
+    this.props.dispatch(loading())
     if(this.props.setInitialSearch){
         this.props.setInitialSearch()
     }
@@ -34,14 +34,21 @@ for(let j=0; j<sourceArray.length; j++){
         language: 'en',
         sortBy: 'date'
       })
-      .then(response => {      
-          if(response.totalResults === 0){
-              return alert(`No results from ${siteArray[j]}`)
-          }
-        // make an array of all the descriptions
+      .then(response => {  
+          console.log(sourceArray[j])
+          console.log(response)  
+      
+            // make an array of all the descriptions
         // make an array of objects with the title and url of the article
         // also make an array of the entire text of all articles to be used for the word cloud
-        for(let i=0;i<5;i++){
+let length
+    if(response.articles.length >=5){
+    length = 5
+}
+else if(response.articles.length <5){
+    length =  response.articles.length
+}
+        for(let i=0;i<length;i++){
           descriptionArray.push(response.articles[i].description)
           titleAndUrl.push({headlineText: response.articles[i].title, description: response.articles[i].description, url: response.articles[i].url})
           combinedHeadlines.push(response.articles[i].title)
@@ -54,15 +61,21 @@ for(let j=0; j<sourceArray.length; j++){
       for(let b= 0; b<result.length; b++){
           initializedArray.push({text: result[b].word, value: result[b].count})
       }
-
       let wordFilter = ['Fox','MSNBC', 'fox', 'cnn', 'CNN', '(CNN)', 'from', 'with', 'a', 'A', 'the', 'who', 'of', 'to', 'and', 'in', 'on', 'for']
-      
       var filteredArray = initializedArray.filter(function (el) {
           return wordFilter.indexOf(el.text) <= -1; 
         });
-        this.props.dispatch(populateState(siteArray[j], titleAndUrl, filteredArray))
+        this.props.dispatch(populateState(siteArray[j], titleAndUrl, filteredArray)) 
+        // set timeout prevents the jittery rerendering of the word cloud after a second search
+        setTimeout(()=>{this.props.dispatch(loading())}, 100);
+       
+       
+    
+
       })  
+
 }
+
 }
 
 render(){
