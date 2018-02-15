@@ -7,10 +7,10 @@ export class SentimentBtn extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            loadingOpinion: false
+            loadingOpinion: false,
+            buttonHidden: false
         }   
     }
-
     getSentiment(){
         this.setState({loadingOpinion: true})
         let sentiment;
@@ -20,21 +20,31 @@ export class SentimentBtn extends React.Component{
         })
         .then((json)=>{
         this.props.dispatch(updateOpinion(this.props.index, json.sentiment.type, this.props.site))
-    })
-
+            this.setState({loadingOpinion: false, buttonHidden: true})
+})
     }
 
     render(){
-
-        return(
-                <div>
+            if(this.state.loadingOpinion){
+                console.log('loading true')
+                return(<h4 className='loadingH4'>LOADING...</h4>)
+            }
+            else if(this.state.loadingOpinion === false & this.state.buttonHidden){
+                console.log('yas')
+                return (
                     <h4 className='opinionResult'>{this.props.opinion}</h4>
-                    <button onClick={()=>{this.getSentiment()}} className='hideShow sentimentBtn'>Sentiment</button>
-                </div>
-        )
-
-        }
-    }
+                )
+            }
+            else{
+                return(
+                        <div>
+                            <h4 className='opinionResult'>{this.props.opinion}</h4>
+                            <button onClick={()=>{this.getSentiment()}} className='hideShow sentimentBtn'>Calculate Opinion</button>
+                        </div>
+                    )
+                }    
+            }
+         }
 
 
     export default connect()(SentimentBtn)
