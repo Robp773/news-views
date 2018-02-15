@@ -1,6 +1,7 @@
 
 
 let initialState = {
+    loading: false,
     msnbc: {
         site: 'msnbc',
         mobileVis: false,
@@ -46,5 +47,11 @@ export const reducer =  (state = initialState, action) =>{
         // console.log(state[lowerCaseSite].headlines[index].opinion = action.opinion)
         return Object.assign({}, state, ...state[lowerCaseSite].headlines[index].opinion = action.opinion)
     }
+
+    if(action.type === 'LOADING'){
+        return Object.assign({}, state, state.loading = !state.loading)
+    }
+    if(action.type === 'EMPTY'){
+        return Object.assign({}, state, state[action.site].headlines=[], state[action.site].mainWords = [])}
 return state;
 }

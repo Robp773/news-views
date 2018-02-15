@@ -16,3 +16,12 @@ export const updateOpinion = (index, opinion, site)=>({
     opinion: opinion,
     site: site
 })
+
+export const loading = () =>({
+    type: 'LOADING'
+})
+
+export const emptyColumn = (site) =>({
+    type: 'EMPTY',
+    site: site
+})
