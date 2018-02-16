@@ -25,14 +25,33 @@ export class SentimentBtn extends React.Component{
     }
 
     render(){
+        let colorClass;
+        let opinion;
             if(this.state.loadingOpinion){
                 console.log('loading true')
-                return(<h4 className='loadingH4'>LOADING...</h4>)
+                return(<div class="loading">
+                <div class="loading-bar"></div>
+                <div class="loading-bar"></div>
+                <div class="loading-bar"></div>
+                <div class="loading-bar"></div>
+              </div>)
             }
             else if(this.state.loadingOpinion === false & this.state.buttonHidden){
-                console.log('yas')
+                if(this.props.opinion === 'negative'){
+                    colorClass = 'red';
+                    opinion = 'Negative';
+                }
+                else if(this.props.opinion === 'neutral'){
+                    colorClass = 'orange';
+                    opinion = 'Neutral';
+
+                }
+                else {
+                    colorClass = 'green';
+                    opinion = 'Positive';
+                }
                 return (
-                    <h4 className='opinionResult'>{this.props.opinion}</h4>
+                    <h4 className={`${colorClass} opinionResult`}>{opinion}</h4>
                 )
             }
             else{
