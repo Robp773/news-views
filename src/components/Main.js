@@ -19,9 +19,6 @@ initialSearch(){
 }
 
 render(){
-    // first search
-    // console.log(this.props.fullState)
-
     if(this.props.fullState.loading){
         return (
                     <div className="overlay-loader">

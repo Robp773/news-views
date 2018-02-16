@@ -9,6 +9,7 @@ export default class ColumnText extends React.Component{
     }
     
     render(){
+       
         let result;
         let headlines = this.props.headlines;
         let headlinesArray = [];
