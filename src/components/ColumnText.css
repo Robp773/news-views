@@ -48,7 +48,7 @@ overflow: auto;
     transition: .5 ease-in-out;
 }
 .headlineLink:hover{
-    color: red;
+    color: #3498db;
 }
 
 
@@ -59,12 +59,15 @@ overflow: auto;
 }
 
 .sentimentBtn{
+    font-weight: bold;
+    color: black;
     margin-left: auto;
     margin-right: auto;
     margin-top: 5px;
     margin-bottom: 5px;
     display: block;
-
+    padding: 3px;
+    background: white;
 }
 
 .hideShow{

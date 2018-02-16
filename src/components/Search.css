@@ -31,10 +31,17 @@
 
 }
 .searchForm > button{
+    padding-right: 10px;
     height: 35px;
     font-size: 15px;
+    padding-left: 10px;
+    color: white;
+    background: #3498db;
+    transition: .5s;
+}
 
-
+.searchForm > button:hover{
+    background: orangered;
 }
 
 
