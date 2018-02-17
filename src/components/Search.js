@@ -2,7 +2,6 @@ import React from 'react';
 import './Search.css';
 import {connect} from 'react-redux';
 import {populateState, loading, emptyColumn} from '../actions';
-import NewsAPI  from 'newsapi';
 import Freq from 'wordfrequenter';
 import https from 'https'
 
@@ -19,8 +18,10 @@ searchSent(query){
     if(this.props.setInitialSearch){
         this.props.setInitialSearch()
     }
+
+
 // Search the three news networks for headlines on the searched term
-const newsapi = new NewsAPI('a8bbe0f664d741539f4eeb966fa99339');
+// const newsapi = new NewsAPI('a8bbe0f664d741539f4eeb966fa99339');
 let sourceArray = ['msnbc', 'cnn', 'fox-news']
 let siteArray = ['msnbc', 'cnn', 'fox']
 // loop through this entire sequence once for each news source
@@ -28,19 +29,16 @@ for(let j=0; j<sourceArray.length; j++){
     let combinedHeadlines = []
     let titleAndUrl = [];
     let descriptionArray = []
-    newsapi.v2.everything({
-        sources: sourceArray[j],
-        q: query,
-        language: 'en',
-        sortBy: 'date'
-      })
-      .then(response => {  
-          console.log(sourceArray[j])
-          console.log(response)  
-      
-            // make an array of all the descriptions
-        // make an array of objects with the title and url of the article
-        // also make an array of the entire text of all articles to be used for the word cloud
+    let url = `https://newsapi.org/v2/everything?apiKey=a8bbe0f664d741539f4eeb966fa99339&q=${query}&sources=${sourceArray[j]}&sortBy=relevancy&language=en`;
+	var req = new Request(url);
+	fetch(req)
+		.then(res => {
+			return res.json();
+		})
+		.then(response => {
+			console.log(response);
+  
+
 let length
     if(response.articles.length >=5){
     length = 5
