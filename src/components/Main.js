@@ -2,7 +2,6 @@ import './Main.css';
 import React from 'react';
 import NewsColumn from './NewsColumn';
 import Search from './Search';
-import NetworkButtons from './NetworkButtons';
 import {connect} from 'react-redux';
 
 export class Main extends React.Component{
@@ -46,7 +45,6 @@ render(){
             <div className='main'>
                 <h1>News Views</h1>
                 <Search setInitialSearch={false} size='searchedSize' fullState={this.props.fullState}/>
-                <NetworkButtons/>
                 <div className='columnParent'>
                     <NewsColumn loading={this.props.fullState.loading} site='MSNBC' siteUrl='msnbc' stateObj={this.props.msnbc}/>
                     <NewsColumn loading={this.props.fullState.loading} site='CNN' siteUrl='cnn'stateObj={this.props.cnn} />
