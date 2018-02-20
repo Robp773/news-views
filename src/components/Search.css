@@ -16,13 +16,12 @@
 
 .initialForm > button, .searchForm > button{
     width: fit-content;
-    margin-left: 3px;
+    /* margin-left: 3px; */
     padding-left: 5px;
     padding-right: 5px;
     border: 0;
     padding-bottom: 0;
     padding-top: 0;
-
 }
 
 .initialForm > button{
@@ -47,8 +46,8 @@
 
 /* initial size of search text input */
 .initialSize{
-    width: 50%;
-    font-size: 30px;
+    width: 95%;
+    font-size: 25px;
     padding-left: 5px;
     padding-right: 5px;
     height: 55px;
@@ -68,4 +67,30 @@
     border: 0;
     padding-bottom: 0;
     padding-top: 0;
+}
+
+.initialSizeBtn{
+    background: #3498db;
+    transition: .4s;
+    display: block;
+    margin-top: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.initialSizeBtn:hover{
+    background: orangered;
+}
+
+@media screen and (min-width: 1000px) {
+
+.initialSize{
+    width: 50%;
+    font-size: 30px;
+}
+.initialSizeBtn{
+    display: inline-block;
+    margin-left: 5px;
+}
 }
