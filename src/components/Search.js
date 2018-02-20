@@ -86,8 +86,8 @@ render(){
     }
     return(
         <form className={formClass} onSubmit={(e)=>{e.preventDefault(), this.searchSent(this.textInput.value)}}>
-            <input className={this.props.size} ref={(input)=>{this.textInput = input}} type='text' placeholder='Enter your search term here...'/>
-            <button type='submit'>Search</button>
+            <input autoFocus className={this.props.size} ref={(input)=>{this.textInput = input}} type='text' placeholder='Enter your search term here...'/>
+            <button className={`${this.props.size}Btn`} type='submit'>Search</button>
         </form>
     )
 }
