@@ -7,6 +7,13 @@
     padding: 0;
     margin: 0;
 }
+
+.sentimentBtn{
+  padding: 4px;
+  color: white;
+  background: #3498db;
+  border: 0;
+}
 .loading {
   margin: 5px;
   }
