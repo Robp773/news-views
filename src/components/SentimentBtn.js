@@ -11,7 +11,7 @@ export class SentimentBtn extends React.Component{
             buttonHidden: false
         }   
     }
-    getSentiment(){
+    getSentiment(e){
         this.setState({loadingOpinion: true})
         let sentiment;
         fetch(`https://api.dandelion.eu/datatxt/sent/v1/?token=ad1374871af846789221035b037ed543&url=${this.props.url}`)
@@ -28,12 +28,11 @@ export class SentimentBtn extends React.Component{
         let colorClass;
         let opinion;
             if(this.state.loadingOpinion){
-                console.log('loading true')
-                return(<div class="loading">
-                <div class="loading-bar"></div>
-                <div class="loading-bar"></div>
-                <div class="loading-bar"></div>
-                <div class="loading-bar"></div>
+                return(<div className="loading">
+                <div className="loading-bar"></div>
+                <div className="loading-bar"></div>
+                <div className="loading-bar"></div>
+                <div className="loading-bar"></div>
               </div>)
             }
             else if(this.state.loadingOpinion === false & this.state.buttonHidden){
@@ -58,7 +57,7 @@ export class SentimentBtn extends React.Component{
                 return(
                         <div>
                             <h4 className='opinionResult'>{this.props.opinion}</h4>
-                            <button onClick={()=>{this.getSentiment()}} className='hideShow sentimentBtn'>Calculate Opinion</button>
+                            <button onClick={(e)=>{this.getSentiment(e)}} className='hideShow sentimentBtn'>Calculate Opinion</button>
                         </div>
                     )
                 }    
