@@ -1,6 +1,6 @@
 import React from 'react';
 import './ColumnText.css';
-import SentimentBtn from './SentimentBtn'
+import SingleHeadline from './SingleHeadline';
 
 export default class ColumnText extends React.Component{
    
@@ -9,32 +9,32 @@ export default class ColumnText extends React.Component{
     }
     
     render(){
-       
         let result;
         let headlines = this.props.headlines;
         let headlinesArray = [];
+        console.log(this.props.headlines)
         for(let i=0;i<headlines.length;i++){
             if(headlines[i].opinion !=  undefined){
                 result = headlines[i].opinion
             }        
 
         headlinesArray.push(
-        <div className='headline' key={`${this.props.site}${i}`}>
-            <div className='linkContainer'>
-                <a  className='headlineLink' href={headlines[i].url}>
-                    {headlines[i].headlineText}
-                    <div className='borderDiv'></div>            
-                </a>
-            </div>
-            <SentimentBtn site = {this.props.site} index={i} url={headlines[i].url} opinion={headlines[i].opinion}/> 
+        <SingleHeadline 
+            key={`${this.props.site}${i}`} 
+            site={this.props.site}
+            headlineText={headlines[i].headlineText}
+            headlineUrl={headlines[i].url}
+            opinion={headlines[i].opinion}
+            description={headlines[i].description}
+            index={i}
+        />
 
-            <div className='hideShow description'>{headlines[i].description}</div> 
-        </div>
         )
 
         }
         return (
-                <div>{headlinesArray}</div>
+                <div>{headlinesArray}
+                </div>
                ) 
             }
 }

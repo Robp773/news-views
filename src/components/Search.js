@@ -36,8 +36,6 @@ for(let j=0; j<sourceArray.length; j++){
 			return res.json();
 		})
 		.then(response => {
-			console.log(response);
-  
 
 let length
     if(response.articles.length >=5){

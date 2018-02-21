@@ -1,0 +1,114 @@
+.headline{
+    font-size: 20px;
+    background: rgba(0,0,0,.35);
+    border: 1px solid black;
+    height: 25px;
+    margin-top: 3px;
+    margin-bottom: 3px;
+    overflow: -webkit-paged-x;
+    overflow-x: hidden;
+    transition: ease-in-out .5s; 
+}
+.linkContainer{
+    background: rgba(0,0,0,.25);
+}
+.expanded{
+    font-size: 20px;
+    background: rgba(0,0,0,.55);
+    border: 1px solid black;
+    margin-top: 3px;
+    margin-bottom: 3px;
+    overflow: -webkit-paged-x;
+    overflow-x: hidden;
+    transition: ease-in-out .5s; 
+    height: fit-content;
+
+  
+}
+.headlineLink{  
+    margin: auto;
+    display: inline-block;
+    width: 85%;
+    text-decoration: none;
+    color: white;
+    vertical-align: middle;
+    transition: .5 ease-in-out;
+}
+.description{
+    margin: 5px;
+    font-size: 15px;
+    color: white;
+}
+
+.mobileExpandBtn{
+    background: rgba(0,0,0,0);
+    float: right;
+    border: 0;
+    color: white;
+    margin: 0;
+}
+
+.svg-inline--fa{
+    font-size: 20px;
+}
+
+@media screen and (min-width: 1000px) {
+    .mobileExpandBtn{
+        display: none;
+    }
+    .headline{
+        font-size: 20px;
+        background: rgba(0,0,0,.35);
+        border: 1px solid black;
+        height: 25px;
+        margin-top: 3px;
+        margin-bottom: 3px;
+        overflow: -webkit-paged-x;
+        overflow-x: hidden;
+        transition: ease-in-out .5s; 
+        transition-delay: .15s;
+    }
+    .headlineLink{
+        width: fit-content;
+    }
+    
+    .linkContainer{
+        text-align: center;
+        margin: auto;
+    }
+    .headline:hover{
+    background: rgba(0,0,0,.55);
+    height: 15vh;
+    overflow: auto;
+    
+    }
+    
+    .headline:hover .borderDiv{
+        width: 100%;
+    }
+    .headline:hover .hideShow{
+        opacity: 1;
+    }
+    .borderDiv{
+        margin: auto;
+        width: 0%;
+        border-bottom: 3px solid red;
+        transition-delay: .25s;
+        transition: .5s;
+    }
+    
+
+    .headlineLink:hover{
+        color: #3498db;
+    }
+    
+    
+
+    
+
+    
+    .hideShow{
+        opacity: 0;
+        transition: .5s;
+    }
+}
