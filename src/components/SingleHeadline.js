@@ -11,7 +11,6 @@ export default class SingleHeadline extends React.Component{
     }
 
     onExpandClick(){
-     console.log('click')   
      this.setState({expanded: !this.state.expanded})
     }
     render(){            
@@ -19,11 +18,9 @@ export default class SingleHeadline extends React.Component{
         let upSymbol = <i className="fas fa-chevron-up"></i> 
         let headlineCSS;
         if(this.state.expanded){
-            console.log('true')
             headlineCSS = 'expanded'
         }
         else if(!this.state.expanded){
-            console.log('false')
             headlineCSS = 'headline';
         }
             return(

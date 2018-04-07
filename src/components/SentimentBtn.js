@@ -13,7 +13,6 @@ export class SentimentBtn extends React.Component{
     }
     getSentiment(e){
         this.setState({loadingOpinion: true})
-        let sentiment;
         fetch(`https://api.dandelion.eu/datatxt/sent/v1/?token=ad1374871af846789221035b037ed543&url=${this.props.url}`)
         .then((result)=>{
             return result.json()
@@ -63,6 +62,5 @@ export class SentimentBtn extends React.Component{
                 }    
             }
          }
-
 
     export default connect()(SentimentBtn)

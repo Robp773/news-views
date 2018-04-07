@@ -44,7 +44,6 @@ export const reducer =  (state = initialState, action) =>{
     if(action.type === 'UPDATE_OPINION'){
         let lowerCaseSite = (action.site).toLowerCase();
         let index = action.index
-        // console.log(state[lowerCaseSite].headlines[index].opinion = action.opinion)
         return Object.assign({}, state, ...state[lowerCaseSite].headlines[index].opinion = action.opinion)
     }
 

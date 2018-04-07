@@ -1,24 +1,23 @@
 import React from 'react';
 import './Search.css';
 import {connect} from 'react-redux';
-import {populateState, loading, emptyColumn} from '../actions';
+import {populateState, loading} from '../actions';
 import Freq from 'wordfrequenter';
-import https from 'https'
 
 export class Search extends React.Component{
 super(props){
     constructor(props);
 }
 
-searchSent(query){
+searchSent(query, e){
+    e.preventDefault();
     if(query === ''){
-       return alert('no')
+       return alert('Please enter a search term.')
     }
     this.props.dispatch(loading())
     if(this.props.setInitialSearch){
         this.props.setInitialSearch()
     }
-
 
 // Search the three news networks for headlines on the searched term
 // const newsapi = new NewsAPI('a8bbe0f664d741539f4eeb966fa99339');
@@ -36,7 +35,6 @@ for(let j=0; j<sourceArray.length; j++){
 			return res.json();
 		})
 		.then(response => {
-
 let length
     if(response.articles.length >=5){
     length = 5
@@ -64,14 +62,8 @@ else if(response.articles.length <5){
         this.props.dispatch(populateState(siteArray[j], titleAndUrl, filteredArray)) 
         // set timeout prevents the jittery rerendering of the word cloud after a second search
         setTimeout(()=>{this.props.dispatch(loading())}, 100);
-       
-       
-    
-
       })  
-
 }
-
 }
 
 render(){
@@ -83,7 +75,7 @@ render(){
         formClass = 'searchForm';
     }
     return(
-        <form className={formClass} onSubmit={(e)=>{e.preventDefault(), this.searchSent(this.textInput.value)}}>
+        <form className={formClass} onSubmit={(e)=>{ this.searchSent(this.textInput.value, e)}}>
             <input autoFocus className={this.props.size} ref={(input)=>{this.textInput = input}} type='text' placeholder='Enter your search term here...'/>
             <button className={`${this.props.size}Btn`} type='submit'>Search</button>
         </form>

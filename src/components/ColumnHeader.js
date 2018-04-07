@@ -3,9 +3,7 @@ import './ColumnHeader.css';
 import WordCloud from 'react-d3-cloud';
 
 export default class ColumnHeader extends React.Component{
-constructor(props){
-    super(props);
-}
+
 shouldComponentUpdate(nextProps) {
     if(this.props.mainWords === nextProps.mainWords){
         return false
@@ -47,12 +45,11 @@ shouldComponentUpdate(nextProps) {
         return (
         <div className='header'>
             <h2>
-                <img className='headerImg' src={`${headerImage}`}/>
+                <img className='headerImg' alt={`${this.props.site} logo`} src={`${headerImage}`}/>
             </h2>
             {noResults}
             {wordCluster}
         </div>
-    ) 
-    }
+    )}
    
 }
