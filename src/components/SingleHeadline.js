@@ -16,6 +16,7 @@ export default class SingleHeadline extends React.Component {
   }
 
   render () {
+    console.log(this.props.sourceNum)
     let headlineCSS, mobileVis, mobileBtn
     if (this.state.expanded) {
       headlineCSS = 'expanded'
@@ -40,6 +41,7 @@ export default class SingleHeadline extends React.Component {
               <FontAwesomeIcon icon='link' />
             </a>
             <SentimentBtn
+              sourceNum={this.props.sourceNum}
               site={this.props.site}
               index={this.props.index}
               url={this.props.headlineUrl}

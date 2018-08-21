@@ -19,7 +19,7 @@ export class SentimentBtn extends React.Component {
         return result.json()
       })
       .then((json) => {
-        this.props.dispatch(updateOpinion(this.props.index, json.sentiment.type, this.props.site))
+        this.props.dispatch(updateOpinion(this.props.index, json.sentiment.type, this.props.sourceNum))
         this.setState({loadingOpinion: false, buttonHidden: true})
       })
   }
