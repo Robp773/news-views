@@ -93,4 +93,31 @@
     display: inline-block;
     margin-left: 5px;
 }
+.searchForm{
+    width: 70%;
+}
+
+.searchForm > button{
+    padding: 1px 0;
+    height: 5vh;
+    font-size: 20px;
+    color: white;
+    width: 13.5%;
+    background: #3498db;
+    transition: .5s;
+    margin-left: 3px;
+}
+
+.searchedSize{
+    border: 2px solid orange;
+    margin: auto;
+    font-size: 20px;
+    height: 5vh;
+    width: 35%;
+    text-align: center;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-bottom: 0;
+    padding-top: 0;
+}
 }
