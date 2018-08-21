@@ -1,65 +1,84 @@
-.opinionResult{
-    margin: 0%;
-    padding: 0;
-}
-.loadingH4{
-    color: white;
-    padding: 0;
-    margin: 0;
+
+.loadingH4 {
+  color: white;
+  padding: 0;
+  margin: 0;
 }
 
-.sentimentBtn{
-  padding: 4px;
-  color: white;
-  background: #3498db;
+.opinion{
+  display: none;
+  padding: 0;
+  margin: 0 0 0 5px;
+}
+
+.sentimentBtn {
   border: 0;
+  display: inline-block;
+  color: #3498db;
+  font-size: 20px;
+  background: rgba(0, 0, 0, 0);
+}
+
+.sentimentParent {
+  display: inline-block;
+}
+
+.sentimentBtn:hover {
+  color: white;
 }
 .loading {
+  display: inline;
   margin: 5px;
-  }
-  .loading-bar {
-      margin-right: 1px;
-    display: inline-block;
-    width: 5px;
-    height: 18px;
-    border-radius: 4px;
-    animation: loading 1s ease-in-out infinite;
-  }
-  .loading-bar:nth-child(1) {
-    background-color: #3498db;
-    animation-delay: 0;
-  }
-  .loading-bar:nth-child(2) {
-    background-color: #c0392b;
-    animation-delay: 0.09s;
-  }
-  .loading-bar:nth-child(3) {
-    background-color: #f1c40f;
-    animation-delay: .18s;
-  }
-  .loading-bar:nth-child(4) {
-    background-color: #27ae60;
-    animation-delay: .27s;
-  }
-  
-  @keyframes loading {
-    0% {
-      transform: scale(1);
-    }
-    20% {
-      transform: scale(1, 1.5);
-    }
-    40% {
-      transform: scale(1);
-    }
-  }
+}
+.loading-bar {
+  margin-right: 1px;
+  display: inline-block;
+  width: 5px;
+  height: 18px;
+  border-radius: 4px;
+  animation: loading 1s ease-in-out infinite;
+}
+.loading-bar:nth-child(1) {
+  background-color: #3498db;
+  animation-delay: 0;
+}
+.loading-bar:nth-child(2) {
+  background-color: #3498db;
+  animation-delay: 0.09s;
+}
+.loading-bar:nth-child(3) {
+  background-color: #3498db;
+  animation-delay: 0.18s;
+}
+.loading-bar:nth-child(4) {
+  background-color: #3498db;
+  animation-delay: 0.27s;
+}
 
-  .red{
-    color: red;
+@keyframes loading {
+  0% {
+    transform: scale(1);
   }
-  .orange{
-    color: orange;
+  20% {
+    transform: scale(1, 1.5);
   }
-  .green{
-    color: green;
+  40% {
+    transform: scale(1);
   }
+}
+
+.red {
+  color: red;
+}
+.orange {
+  color: orange;
+}
+.green {
+  color: green;
+}
+
+@media screen and (min-width: 1000px) {
+  .sentimentBtn {
+    margin: 1px;
+  }
+}

@@ -1,114 +1,132 @@
-.headline{
-    font-size: 20px;
-    background: rgba(0,0,0,.35);
-    border: 1px solid black;
-    height: 25px;
-    margin-top: 3px;
-    margin-bottom: 3px;
-    overflow: -webkit-paged-x;
-    overflow-x: hidden;
-    transition: ease-in-out .5s; 
-}
-.linkContainer{
-    background: rgba(0,0,0,.25);
-}
-.expanded{
-    font-size: 20px;
-    background: rgba(0,0,0,.55);
-    border: 1px solid black;
-    margin-top: 3px;
-    margin-bottom: 3px;
-    overflow: -webkit-paged-x;
-    overflow-x: hidden;
-    transition: ease-in-out .5s; 
-    height: fit-content;
-
-  
-}
-.headlineLink{  
-    margin: auto;
-    display: inline-block;
-    width: 85%;
-    text-decoration: none;
-    color: white;
-    vertical-align: middle;
-    transition: .5 ease-in-out;
-}
-.description{
-    margin: 5px;
-    font-size: 15px;
-    color: white;
+.headline {
+  /* background: grey; */
+  font-size: 20px;
+  height: 25px;
+  margin-top: 2px;
+  margin-bottom: 3px;
+  overflow: -webkit-paged-x;
+  overflow-x: hidden;
+  transition: ease-in-out 0.5s;
 }
 
-.mobileExpandBtn{
-    background: rgba(0,0,0,0);
-    float: right;
-    border: 0;
-    color: white;
-    margin: 0;
+.mobileHideBtns {
+  display: none;
 }
 
-.svg-inline--fa{
-    font-size: 20px;
+.mobileShowBtns {
+  display: inline-block;
+  /* width: 45%; */
+}
+
+.expanded {
+  font-size: 20px;
+  background: rgba(0, 0, 0, 0.55);
+  border: 1px solid black;
+  margin-top: 3px;
+  margin-bottom: 3px;
+  overflow: -webkit-paged-x;
+  overflow-x: hidden;
+  transition: ease-in-out 0.5s;
+  height: fit-content;
+}
+.headlineLink {
+  margin: auto;
+  margin-bottom: 3px;
+  display: inline-block;
+  width: 85%;
+  color: white;
+  vertical-align: middle;
+  transition: 0.25 ease-in-out;
+}
+.headlineLinkBtn {
+  color: #3498db;
+  transition: ease-in-out 0.5s;
+  border: 0;
+  margin-left: 10px;
+  background: rgba(0, 0, 0, 0);
+}
+
+.headlineLinkBtn:hover {
+  color: white;
+}
+.description {
+  margin: 5px;
+  font-size: 15px;
+  color: white;
+}
+
+.mobileExpandBtn {
+  background: rgba(0, 0, 0, 0);
+  float: right;
+  border: 0;
+  color: white;
+  margin: 0;
+}
+
+.svg-inline--fa {
+  font-size: 20px;
 }
 
 @media screen and (min-width: 1000px) {
-    .mobileExpandBtn{
-        display: none;
-    }
-    .headline{
-        font-size: 20px;
-        background: rgba(0,0,0,.35);
-        border: 1px solid black;
-        height: 25px;
-        margin-top: 3px;
-        margin-bottom: 3px;
-        overflow: -webkit-paged-x;
-        overflow-x: hidden;
-        transition: ease-in-out .5s; 
-        transition-delay: .15s;
-    }
-    .headlineLink{
-        width: fit-content;
-    }
-    
-    .linkContainer{
-        text-align: center;
-        margin: auto;
-    }
-    .headline:hover{
-    background: rgba(0,0,0,.55);
-    height: 15vh;
+  .mobileHideBtns {
+    display: inline-block;
+  }
+  .mobileExpandBtn {
+    display: none;
+  }
+  .headline {
+    background: rgba(0, 0, 0, 0.25);
+    padding: 10px;
+    font-size: 20px;
+    height: auto;
+    margin: 2px;
+    max-height: 45px;
+    transition: ease-out 0.5s;
+    transition-delay: 0.25s;
+  }
+  .headline:hover {
+    background: rgba(0, 0, 0, 0.55);
+    max-height: 10vh;
     overflow: auto;
-    
-    }
-    
-    .headline:hover .borderDiv{
-        width: 100%;
-    }
-    .headline:hover .hideShow{
-        opacity: 1;
-    }
-    .borderDiv{
-        margin: auto;
-        width: 0%;
-        border-bottom: 3px solid red;
-        transition-delay: .25s;
-        transition: .5s;
-    }
-    
+  }
 
-    .headlineLink:hover{
-        color: #3498db;
-    }
-    
-    
+  .headlineLink {
+    width: fit-content;
+  }
 
-    
+  .linkContainer {
+    text-align: center;
+    margin: auto;
+  }
 
-    
-    .hideShow{
-        opacity: 0;
-        transition: .5s;
-    }
+  .headline:hover .borderDiv {
+    opacity: 1;
+    width: 100%;
+  }
+  .headline:hover .hideShow {
+    width: fit-content;
+    opacity: 1;
+  }
+  .headline:hover .opinion {
+    display: inline-block;
+  }
+  .borderDiv {
+    opacity: 0;
+    margin: auto;
+    width: 0%;
+    border: 1px solid orange;
+    margin: 3px;
+    transition-delay: 0.25s;
+    transition: 0.5s;
+  }
+
+  .hideShow {
+    width: 0;
+    opacity: 0;
+    transition: 0.5s;
+  }
+  .description {
+    margin: auto;
+    font-size: 20px;
+  }
 }
