@@ -1,9 +1,7 @@
 .wordCloud{
     width: 95%;
 }
-.header{
-    background: rgba(0,0,0,.5)
-}
+
 .header > h2{
     padding: 3px;
 }
