@@ -30,11 +30,7 @@ export default class ColumnHeader extends React.Component {
     }
     return (
       <div className='header'>
-        <h2 className='newsHeaderTitle'>{this.props.site}
-          <button className='editSourceBtn'>
-            <FontAwesomeIcon icon='edit' />
-          </button>
-        </h2>
+        <h2 className='newsHeaderTitle'>{this.props.site}</h2>
         {noResults}
         {wordCluster}
       </div>
