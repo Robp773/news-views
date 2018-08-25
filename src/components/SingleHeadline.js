@@ -16,7 +16,6 @@ export default class SingleHeadline extends React.Component {
   }
 
   render () {
-    console.log(this.props.sourceNum)
     let headlineCSS, mobileVis, mobileBtn
     if (this.state.expanded) {
       headlineCSS = 'expanded'
