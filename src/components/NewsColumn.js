@@ -2,7 +2,6 @@ import React from 'react'
 import './NewsColumn.css'
 import ColumnHeader from './ColumnHeader'
 import ColumnText from './ColumnText'
-import { CSSTransitionGroup } from 'react-transition-group' // ES6
 
 export default class NewsColumn extends React.Component {
   super (props) {

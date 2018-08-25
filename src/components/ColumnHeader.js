@@ -1,7 +1,6 @@
 import React from 'react'
 import './ColumnHeader.css'
 import WordCloud from 'react-d3-cloud'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export default class ColumnHeader extends React.Component {
 

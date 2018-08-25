@@ -1,6 +1,5 @@
 import React from 'react'
 import './EditModal.css'
-import NewsAPI from 'newsapi'
 import { connect } from 'react-redux'
 import { editOpen } from '../actions'
 
@@ -138,8 +137,8 @@ export class EditModal extends React.Component {
               Sort By:
             </label>
             <select className='filterInput' ref={input => {
-                           this.selectInput = input
-                         }}>
+                                                   this.selectInput = input
+                                                 }}>
               <option defaultValue='publishedAt'>
                 Newest
               </option>
