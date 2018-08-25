@@ -7,9 +7,9 @@ import {Provider} from 'react-redux';
 import store from './store';
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faChevronCircleDown,faChevronCircleUp, faCalculator, faLink, faEdit} from '@fortawesome/free-solid-svg-icons'
+import { faChevronCircleDown,faChevronCircleUp, faCalculator, faLink, faCog, faFilter} from '@fortawesome/free-solid-svg-icons'
 
-library.add(faChevronCircleDown, faChevronCircleUp, faCalculator, faLink, faEdit)
+library.add(faChevronCircleDown, faChevronCircleUp, faCalculator, faLink, faCog, faFilter)
 
 ReactDOM.render(
     <Provider store={store}>
