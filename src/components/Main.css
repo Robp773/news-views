@@ -3,15 +3,25 @@
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
-html {
-	background: #141E30;  /* fallback for old browsers */
+
+html{
+  background: #141E30;  /* fallback for old browsers */
 	background: -webkit-linear-gradient(to bottom, #243B55, #141E30);  /* Chrome 10-25, Safari 5.1-6 */
 	background: linear-gradient(to bottom, #243B55, #141E30); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-	
-	
+  height: 100%;
+  width: 100%;
+}
+
+#startScreen{
+  text-align: center;
 }
 
 .main {
+  background: #141E30;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to bottom, #243B55, #141E30);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to bottom, #243B55, #141E30); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  height: 100%;
+  width: 100%;
   text-align: center;
 }
 .overlay-loader {
@@ -162,12 +172,13 @@ html {
     -moz-transform: rotate(0deg);
   }
 }
-
-html {
-  width: 100%;
-  height: 100%;
-}
 h1 {
   color: white;
   font-size: 45px;
+}
+
+@media screen and (min-width: 1000px) {
+  h1{
+    font-size: 75px;
+  }
 }

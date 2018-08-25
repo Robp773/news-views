@@ -29,7 +29,8 @@ export class Main extends React.Component {
   render () {
     if (!this.state.initialSearch) {
       return (
-        <div className='main '>
+        <div id='startScreen'>
+          <h1>News Views</h1>
           <Search
             sources={this.state.sourcesArray}
             setInitialSearch={this.initialSearch}
