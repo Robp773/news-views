@@ -26,3 +26,8 @@ export const emptyColumn = (site) => ({
   type: 'EMPTY',
   site: site
 })
+
+export const editOpen = () => ({
+    type: 'EDIT_OPEN'
+  })
+  

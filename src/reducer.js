@@ -1,20 +1,23 @@
 let initialState = {
-  loading: false,
+  ui: {
+    loading: false,
+    editOpen: false
+  },
   sourceOne: {
-    site: 'msnbc',
+    site: 'cnn',
     mobileVis: false,
     mainWords: [],
     headlines: []
   },
   sourceTwo: {
-    site: 'cnn',
+    site: 'msnbc',
     mobileVis: true,
     mainWords: [],
     headlines: []
 
   },
   sourceThree: {
-    site: 'fox',
+    site: 'fox-news',
     mobileVis: false,
     mainWords: [],
     headlines: []
@@ -22,28 +25,19 @@ let initialState = {
 }
 
 export const reducer = (state = initialState , action) => {
-  if (action.type === 'CHANGE_VIS') {
-    let siteArray = ['msnbc', 'cnn', 'fox']
-    for (let i = 0; i < siteArray.length; i++) {
-      if (siteArray[i] === action.site) {
-        siteArray.splice(i, 1)
-      }
-    }
-    return Object.assign({}, state, state[action.site].mobileVis = true,
-      state[siteArray[0]].mobileVis = false, state[siteArray[1]].mobileVis = false
-    )
-  }
 
   if (action.type === 'POPULATE_STATE') {
-    console.log(action)
     return Object.assign({}, state,
       state[action.sourceNum].site = action.siteSource,
       state[action.sourceNum].headlines = action.headlinesArray,
       state[action.sourceNum].mainWords = action.mainWords)
   }
+  if (action.type === 'EDIT_OPEN') {
+    return Object.assign({}, state,
+      state.ui.editOpen = !state.ui.editOpen)
+  }
 
   if (action.type === 'UPDATE_OPINION') {
-    
     let index = action.index
     return Object.assign({}, state, ...state[action.sourceNum].headlines[index].opinion = action.opinion)
   }
