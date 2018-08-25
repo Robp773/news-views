@@ -1,6 +1,25 @@
 .column {
   display: block;
+  transition: all 1s;
 }
+.columnGroup-enter {
+  opacity: 0.01;
+}
+
+.columnGroup-enter.columnGroup-enter-active {
+  opacity: 1;
+  transition: opacity 0.1ms ease-in;
+}
+
+.columnGroup-leave {
+  opacity: 1;
+}
+
+.columnGroup-leave.columnGroup-leave-active {
+  opacity: 0.01;
+  transition: opacity 300ms ease-in;
+}
+
 @media screen and (min-width: 550px) {
   .column {
     display: inline-block;

@@ -1,0 +1,81 @@
+#modalBG {
+  background: rgba(56, 56, 56, 0.75);
+  height: 100vh;
+  width: 100%;
+  position: absolute;
+  z-index: 100;
+}
+
+.formSection {
+  margin: auto;
+  background: white;
+  width: 75%;
+}
+#exitBtn {
+  position: absolute;
+  top: 3px;
+  right: 3px;
+}
+
+#editForm {
+  box-shadow: 1px 1px 10px 3px black;
+  background: white;
+  width: 95%;
+  text-align: center;
+  font-weight: bold;
+  padding: 15px;
+  position: absolute;
+  top: 20%;
+  left: 2.5%;
+}
+
+label {
+  font-weight: bold;
+  margin-right: 3px;
+  background: white;
+}
+.filterInput {
+  border: 1px solid gray;
+  text-align: center;
+  width: 40%;
+  font-weight: bold;
+  margin: 1px auto;
+}
+
+.singleSourceResult {
+  font-weight: bold;
+  color: white;
+  background: rgba(52, 152, 219, 1);
+  border: 1px solid black;
+  padding: 6px;
+  margin: 1px;
+}
+
+.singleSourceResult:hover {
+  background: white;
+  color: orange;
+}
+
+.formSection {
+  margin: 3px auto;
+}
+#updateBtn {
+  margin: 5px;
+  padding: 9px;
+  border: 0;
+}
+#updateBtn,
+#exitBtn {
+  color: white;
+  font-weight: bold;
+  box-shadow: 0 0 5px 1px black;
+  background: rgba(52, 152, 219, 1);
+  border: 0;
+}
+
+@media screen and (min-width: 1000px) {
+  #editForm {
+    width: 20%;
+    left: 40%;
+  }
+}

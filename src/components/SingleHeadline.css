@@ -15,7 +15,6 @@
 
 .mobileShowBtns {
   display: inline-block;
-  /* width: 45%; */
 }
 
 .expanded {
@@ -39,6 +38,7 @@
   transition: 0.25 ease-in-out;
 }
 .headlineLinkBtn {
+  /* display: none; */
   color: #3498db;
   transition: ease-in-out 0.5s;
   border: 0;
@@ -69,7 +69,7 @@
 
 @media screen and (min-width: 1000px) {
   .mobileHideBtns {
-    display: inline-block;
+    display: block;
   }
   .mobileExpandBtn {
     display: none;
@@ -104,8 +104,7 @@
     width: 100%;
   }
   .headline:hover .hideShow {
-    width: fit-content;
-    opacity: 1;
+    display: inline-block;
   }
   .headline:hover .opinion {
     display: inline-block;
@@ -115,15 +114,12 @@
     margin: auto;
     width: 0%;
     border: 1px solid orange;
-    margin: 3px;
     transition-delay: 0.25s;
     transition: 0.5s;
   }
 
   .hideShow {
-    width: 0;
-    opacity: 0;
-    transition: 0.5s;
+    transition: 1s;
   }
   .description {
     margin: auto;
