@@ -3,49 +3,49 @@ import React from 'react'
 import NewsColumn from './NewsColumn'
 import Search from './Search'
 import { connect } from 'react-redux'
+import NewsAPI from 'newsapi'
 
 export class Main extends React.Component {
   constructor (props) {
     super(props)
     // tracks whether the first search has been made to make the search input change
     // position and get smaller to make room for rest of interface.
-    this.state = { initialSearch: false }
+    this.state = { initialSearch: false,
+    sourcesArray: []}
     this.initialSearch = this.initialSearch.bind(this)
   }
-
+  componentWillMount () {
+    const newsapi = new NewsAPI('a8bbe0f664d741539f4eeb966fa99339')
+    newsapi.v2.sources({
+      language: 'en'
+    }).then(response => {
+      this.setState({sourcesArray: response.sources})
+    })
+  }
   initialSearch () {
     this.setState({ initialSearch: true })
   }
 
   render () {
-    if (this.props.fullState.loading) {
-      return (
-        <div className='overlay-loader'>
-          <div className='loader'>
-            <div />
-            <div />
-            <div />
-            <div />
-            <div />
-            <div />
-            <div />
-          </div>
-        </div>
-      )
-    }
     if (!this.state.initialSearch) {
       return (
         <div className='main '>
-          <h1>News Views</h1>
-          <Search setInitialSearch={this.initialSearch} size='initialSize' fullState={this.props.fullState} />
+          <Search
+            sources={this.state.sourcesArray}
+            setInitialSearch={this.initialSearch}
+            size='initialSize'
+            fullState={this.props.fullState} />
         </div>
       )
     }
     // following searches
     return (
       <div className='main'>
-        <h1>News Views</h1>
-        <Search setInitialSearch={false} size='searchedSize' fullState={this.props.fullState} />
+        <Search
+          sources={this.state.sourcesArray}
+          setInitialSearch={false}
+          size='searchedSize'
+          fullState={this.props.fullState} />
         <div className='columnParent'>
           <NewsColumn
             sourceNum='sourceOne'
