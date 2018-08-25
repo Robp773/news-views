@@ -1,15 +1,33 @@
 import React from 'react'
 import './Search.css'
 import { connect } from 'react-redux'
-import { populateState, loading } from '../actions'
+import { populateState, loading, editOpen } from '../actions'
 import Freq from 'wordfrequenter'
 import NewsAPI from 'newsapi'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import EditModal from './EditModal.js'
 export class Search extends React.Component {
-  super (props) {
-    constructor(props)
+
+  constructor (props) {
+    super(props)
+    this.state = {
+      searchNames: ['CNN', 'MSNBC', 'FOX'],
+      searchParams: {sortBy: 'publishedAt', resultsLimit: 5, sourcesArray: ['cnn', 'msnbc', 'fox-news']}
+    }
+    this.setSearchParams = this.setSearchParams.bind(this)
   }
 
-  testQuery (query, sortBy, pageSize, newsSourceArray, e) {
+  editClick (e) {
+    e.preventDefault()
+    this.props.dispatch(editOpen())
+  }
+
+  setSearchParams (params, searchNames) {
+    this.setState({searchParams: params, searchNames: searchNames})
+    this.props.dispatch(editOpen())
+  }
+
+  searchQuery (query, e) {
     e.preventDefault()
     if (query === '') {
       return alert('Please enter a search term.')
@@ -17,27 +35,22 @@ export class Search extends React.Component {
 
     this.props.dispatch(loading())
 
-    if (this.props.setInitialSearch) {
-      this.props.setInitialSearch()
-    }
-
     const newsapi = new NewsAPI('a8bbe0f664d741539f4eeb966fa99339')
     let sourceArray = ['sourceOne', 'sourceTwo', 'sourceThree']
-
+    let paramsObj = this.state.searchParams
     for (let i = 0; i < sourceArray.length; i++) {
       newsapi.v2.everything({
-        sources: newsSourceArray[i],
+        sources: paramsObj.sourcesArray[i],
         q: query,
-        sortBy: sortBy,
-        pageSize: pageSize,
-        language: 'en',
+        sortBy: paramsObj.sortBy,
+        pageSize: paramsObj.resultsLimit,
+        language: 'en'
       }).then(response => {
-        console.log(response)
 
         let titleAndUrl = []
         let descriptionArray = []
 
-        for (let i = 0; i < pageSize; i++) {
+        for (let i = 0; i < paramsObj.resultsLimit; i++) {
           // used for wordcloud frequency counting later- basically a large pile of words
           //  taken from headline descriptions
           descriptionArray.push(response.articles[i].description)
@@ -86,43 +99,68 @@ export class Search extends React.Component {
         var filteredArray = initializedArray.filter(function (el) {
           return wordFilter.indexOf(el.text) <= -1
         })
-        this.props.dispatch(   
-          // sourceNum, siteSource, headlinesArray, mainWords
-        populateState(sourceArray[i], newsSourceArray[i], titleAndUrl, filteredArray)
+        console.log(sourceArray[i], this.state.searchNames[i])
+        // paramsObj.sourcesArray[i]
+        this.props.dispatch(
+          populateState(sourceArray[i], this.state.searchNames[i], titleAndUrl, filteredArray)
         )
-        // set timeout prevents the jittery rerendering of the word cloud after a second search
-        setTimeout(() => {
-          this.props.dispatch(loading())
-        }, 100)
+
+        this.props.dispatch(loading())
+        if (this.props.setInitialSearch) {
+          this.props.setInitialSearch()
+        }
       })
     }
   }
-  
+
   render () {
-    let formClass
+    let formClass, editModal, loadingClass, cogClass
     if (this.props.setInitialSearch) {
       formClass = 'initialForm'
+      cogClass = 'initialCog'
     } else {
       formClass = 'searchForm'
+      cogClass = 'searchCog'
     }
-    return (
-      <form className={formClass} onSubmit={e => {
-                                        this.testQuery(this.textInput.value, 'publishedAt', 5, ['cnn', 'msnbc', 'fox'], e)
-                                      }}>
-        <input
-          value='Trump'
-          autoFocus
-          className={this.props.size}
-          ref={input => {
-                 this.textInput = input
-               }}
-          type='text'
-          placeholder='Enter your search term here...' />
-        <button className={`${this.props.size}Btn`} type='submit'>
-          Search
-        </button>
-        <h3></h3>
-      </form>
+
+    if (this.props.fullState.ui.editOpen) {
+      editModal = <EditModal
+                    resultsLimit={this.state.searchParams.resultsLimit}
+                    sourceIDs={this.state.searchParams.sourcesArray}
+                    sourceNames={this.state.searchNames}
+                    setSearchParams={this.setSearchParams}
+                    sources={this.props.sources} />
+    }
+
+    if (this.props.fullState.loading) {
+      loadingClass = 'loading'
+    }else {
+      loadingClass = 'notLoading'
+    }
+
+    return (       <div>
+                     {editModal}
+                     <form className={formClass} onSubmit={e => {
+                                                             this.searchQuery(this.textInput.value, e)
+                                                           }}>
+                       <input
+                         autoFocus
+                         className={this.props.size}
+                         ref={input => {
+                                this.textInput = input
+                              }}
+                         type='text'
+                         placeholder='Enter your search term here...' />
+                       <button id='filterSearchBtn' onClick={(e) => {
+                                                               this.editClick(e)}}>
+                         <FontAwesomeIcon id='filterIcon' icon='filter' />
+                       </button>
+                       <button className={`${this.props.size}Btn`} type='submit'>
+                         Search
+                       </button>
+                       <FontAwesomeIcon id={cogClass} className={loadingClass} icon='cog' />
+                     </form>
+                   </div>
     )
   }
 }
