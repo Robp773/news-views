@@ -165,15 +165,16 @@ export class EditModal extends React.Component {
           <button id='updateBtn' type='submit'>
             Update
           </button>
-          <div id='resultsParent'>
-            {resultsArray}
-          </div>
           <button id='exitBtn' onClick={e => {
                                           this.props.dispatch(editOpen())
                                         }}>
             X
           </button>
-        </form>
+         
+        </form> ]
+        <div id='resultsParent'>
+            {resultsArray}
+          </div>
       </div>
     )
   }

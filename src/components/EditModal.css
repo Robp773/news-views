@@ -5,6 +5,12 @@
   position: absolute;
   z-index: 100;
 }
+#resultsParent {
+  position: relative;
+  width: 95%;
+  top: 50%;
+  margin: auto;
+}
 
 .formSection {
   margin: auto;
@@ -77,5 +83,11 @@ label {
   #editForm {
     width: 20%;
     left: 40%;
+  }
+  #resultsParent {
+    position: relative;
+    width: 95%;
+    margin: auto;
+    top: 50%;
   }
 }
