@@ -17,7 +17,7 @@ export default class ColumnHeader extends React.Component {
     const fontSizeMapper = word => word.value * 15
     const rotate = word => 0
     let wordCluster = <WordCloud
-                        width={300}
+                        width={320}
                         height={200}
                         padding={0}
                         data={data}
