@@ -21,7 +21,7 @@ export class Search extends React.Component {
   }
 
   onEnter = e => {
-    if (e.keyCode == 13 && e.shiftKey == false) {
+    if (e.keyCode === 13 && e.shiftKey === false) {
       e.preventDefault();
       this.searchQuery(this.textInput.value);
     }
@@ -119,6 +119,7 @@ export class Search extends React.Component {
           );
 
           this.props.dispatch(loading());
+
           if (this.props.setInitialSearch) {
             this.props.setInitialSearch();
           }
@@ -177,7 +178,7 @@ export class Search extends React.Component {
               this.textInput = input;
             }}
             type="text"
-            placeholder="Enter your search term here..."
+            placeholder="Search News Topics"
           />
           <button
             id="filterSearchBtn"
