@@ -6,7 +6,6 @@ import ColumnText from './ColumnText'
 export default class NewsColumn extends React.Component {
   super (props) {
     constructor(props)
-    this.state = {animate: false}
   }
 
   render () {
