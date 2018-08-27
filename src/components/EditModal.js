@@ -13,8 +13,6 @@ export class EditModal extends React.Component {
   }
   sourceSearch (e, input, inputNum) {
     e.preventDefault()
-    let searchableID =
-    input[`textInput${inputNum}`].attributes.searchid.textContent
     let inputVal = this[`textInput${inputNum}`].value
     let result = this.props.sources.filter(el => {
       return el.name.toUpperCase().includes(inputVal.toUpperCase())
@@ -52,7 +50,6 @@ export class EditModal extends React.Component {
   }
 
   render () {
-    console.log(this.props.resultsLimit)
     let resultsArray = this.state.searchResults.map(item => {
       return (
         <button onClick={e => {
