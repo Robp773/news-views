@@ -3,7 +3,6 @@ import "./Search.css";
 import { connect } from "react-redux";
 import { populateState, loading, editOpen } from "../actions";
 import Freq from "wordfrequenter";
-import NewsAPI from "newsapi";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import EditModal from "./EditModal.js";
 export class Search extends React.Component {
@@ -19,6 +18,8 @@ export class Search extends React.Component {
     };
     this.setSearchParams = this.setSearchParams.bind(this);
   }
+
+  componentWillMount() {}
 
   onEnter = e => {
     if (e.keyCode === 13 && e.shiftKey === false) {
@@ -44,17 +45,18 @@ export class Search extends React.Component {
 
     this.props.dispatch(loading());
 
-    const newsapi = new NewsAPI("a8bbe0f664d741539f4eeb966fa99339");
     let sourceArray = ["sourceOne", "sourceTwo", "sourceThree"];
     let paramsObj = this.state.searchParams;
     for (let i = 0; i < sourceArray.length; i++) {
-      newsapi.v2
-        .everything({
-          sources: paramsObj.sourcesArray[i],
-          q: query,
-          sortBy: paramsObj.sortBy,
-          pageSize: paramsObj.resultsLimit,
-          language: "en"
+      fetch(
+        `https://newsapi.org/v2/everything?q=${query}&sources=${
+          paramsObj.sourcesArray[i]
+        }&sortBy=${paramsObj.sortBy}&pageSize=${
+          paramsObj.resultsLimit
+        }&language=en&apiKey=a8bbe0f664d741539f4eeb966fa99339`
+      )
+        .then(res => {
+          return res.json();
         })
         .then(response => {
           let titleAndUrl = [];

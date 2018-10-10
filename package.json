@@ -8,7 +8,6 @@
     "@fortawesome/free-solid-svg-icons": "^5.2.0",
     "@fortawesome/react-fontawesome": "^0.1.2",
     "count-words-occurrence": "^1.0.0",
-    "newsapi": "^2.2.0",
     "normalize.css": "^8.0.0",
     "react": "^16.2.0",
     "react-d3-cloud": "^0.6.0",

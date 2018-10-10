@@ -3,7 +3,6 @@ import React from 'react'
 import NewsColumn from './NewsColumn'
 import Search from './Search'
 import { connect } from 'react-redux'
-import NewsAPI from 'newsapi'
 
 export class Main extends React.Component {
   constructor (props) {
@@ -15,12 +14,13 @@ export class Main extends React.Component {
     this.initialSearch = this.initialSearch.bind(this)
   }
   componentWillMount () {
-    const newsapi = new NewsAPI('a8bbe0f664d741539f4eeb966fa99339')
-    newsapi.v2.sources({
-      language: 'en'
-    }).then(response => {
-      this.setState({sourcesArray: response.sources})
-    })
+    fetch('https://newsapi.org/v2/sources?apiKey=a8bbe0f664d741539f4eeb966fa99339')
+      .then((res) => {
+        res.json()
+          .then((result) => {
+            this.setState({sourcesArray: result.sources})
+          })
+      })
   }
   initialSearch () {
     this.setState({ initialSearch: true })
