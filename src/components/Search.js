@@ -59,10 +59,12 @@ export class Search extends React.Component {
           return res.json();
         })
         .then(response => {
+          console.log(response);
           let titleAndUrl = [];
           let descriptionArray = [];
 
-          for (let i = 0; i < paramsObj.resultsLimit; i++) {
+        let resultsTotal = response.articles.length < 5 ? response.articles.length : paramsObj.resultsLimit;
+          for (let i = 0; i < resultsTotal; i++) {
             // used for wordcloud frequency counting later- basically a large pile of words
             //  taken from headline descriptions
             descriptionArray.push(response.articles[i].description);
