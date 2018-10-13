@@ -4,7 +4,7 @@
   margin-right: auto;
 }
 .loading {
-  animation: 0.5s infinite ease-out rotateEdit;
+  animation: rotateEdit .5s linear infinite forwards;
 }
 
 @keyframes rotateEdit {
