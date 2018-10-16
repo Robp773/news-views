@@ -7,7 +7,10 @@
 }
 
 .header > h2 {
-  padding: 3px;
+  padding: 0;
+  border-bottom: 2px solid orange;
+  width: fit-content;
+  margin: 10px auto;
 }
 
 h2 {
