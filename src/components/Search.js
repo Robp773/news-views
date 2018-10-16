@@ -5,6 +5,11 @@ import { populateState, loading, editOpen } from "../actions";
 import Freq from "wordfrequenter";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import EditModal from "./EditModal.js";
+import {
+  NotificationContainer,
+  NotificationManager
+} from "react-notifications";
+
 export class Search extends React.Component {
   constructor(props) {
     super(props);
@@ -40,7 +45,7 @@ export class Search extends React.Component {
 
   searchQuery(query, e) {
     if (query === "") {
-      return alert("Please enter a search term.");
+      return NotificationManager.warning("Please enter a search term.");
     }
 
     this.props.dispatch(loading());
@@ -63,7 +68,10 @@ export class Search extends React.Component {
           let titleAndUrl = [];
           let descriptionArray = [];
 
-        let resultsTotal = response.articles.length < 5 ? response.articles.length : paramsObj.resultsLimit;
+          let resultsTotal =
+            response.articles.length < 5
+              ? response.articles.length
+              : paramsObj.resultsLimit;
           for (let i = 0; i < resultsTotal; i++) {
             // used for wordcloud frequency counting later- basically a large pile of words
             //  taken from headline descriptions
@@ -173,30 +181,34 @@ export class Search extends React.Component {
             this.searchQuery(this.textInput.value);
           }}
         >
-          <input
-            onKeyDown={this.onEnter}
-            tabIndex="0"
-            autoFocus
-            className={this.props.size}
-            ref={input => {
-              this.textInput = input;
-            }}
-            type="text"
-            placeholder="Search News Topics"
-          />
-          <button
-            id="filterSearchBtn"
-            onClick={e => {
-              this.editClick(e);
-            }}
-          >
-            <FontAwesomeIcon id="filterIcon" icon="filter" />
-          </button>
+          <div className="inputFilter">
+            <input
+              onKeyDown={this.onEnter}
+              tabIndex="0"
+              autoFocus
+              className={this.props.size}
+              ref={input => {
+                this.textInput = input;
+              }}
+              type="text"
+              placeholder="Search News"
+            />
+            <button
+              id="filterSearchBtn"
+              onClick={e => {
+                this.editClick(e);
+              }}
+            >
+              <FontAwesomeIcon id="filterIcon" icon="filter" />
+            </button>
+          </div>
+
           <button className={`${this.props.size}Btn`} type="submit">
             Search
           </button>
           <FontAwesomeIcon id={cogClass} className={loadingClass} icon="cog" />
         </form>
+        <NotificationContainer />
       </div>
     );
   }
