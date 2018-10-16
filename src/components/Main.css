@@ -4,25 +4,44 @@
   box-sizing: border-box;
 }
 
-html{
-  background: #141E30;  /* fallback for old browsers */
-	background: -webkit-linear-gradient(to bottom, #243B55, #141E30);  /* Chrome 10-25, Safari 5.1-6 */
-	background: linear-gradient(to bottom, #243B55, #141E30); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  height: 100%;
-  width: 100%;
-}
-
-#startScreen{
+#startScreen {
   text-align: center;
 }
 
 .main {
-  background: #141E30;  /* fallback for old browsers */
-	background: -webkit-linear-gradient(to bottom, #243B55, #141E30);  /* Chrome 10-25, Safari 5.1-6 */
-	background: linear-gradient(to bottom, #243B55, #141E30); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: #141e30; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to bottom,
+    #243b55,
+    #141e30
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to bottom,
+    #243b55,
+    #141e30
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   height: 100%;
   width: 100%;
   text-align: center;
+  padding-top: 20px;
+}
+
+.initialView{
+  height: 100vh;
+  background: #141e30; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to bottom,
+    #243b55,
+    #141e30
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to bottom,
+    #243b55,
+    #141e30
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  width: 100%;
+  text-align: center;
+  padding-top: 20px;
 }
 .overlay-loader {
   display: block;
@@ -127,7 +146,6 @@ html{
   width: 98px;
   height: 98px;
 }
-
 @keyframes rotateAnim {
   from {
     transform: rotate(360deg);
@@ -136,7 +154,6 @@ html{
     transform: rotate(0deg);
   }
 }
-
 @-o-keyframes rotateAnim {
   from {
     -o-transform: rotate(360deg);
@@ -145,7 +162,6 @@ html{
     -o-transform: rotate(0deg);
   }
 }
-
 @-ms-keyframes rotateAnim {
   from {
     -ms-transform: rotate(360deg);
@@ -154,7 +170,6 @@ html{
     -ms-transform: rotate(0deg);
   }
 }
-
 @-webkit-keyframes rotateAnim {
   from {
     -webkit-transform: rotate(360deg);
@@ -163,7 +178,6 @@ html{
     -webkit-transform: rotate(0deg);
   }
 }
-
 @-moz-keyframes rotateAnim {
   from {
     -moz-transform: rotate(360deg);
@@ -175,10 +189,27 @@ html{
 h1 {
   color: white;
   font-size: 45px;
+  margin: auto;
+  width: fit-content;
+  border-bottom: 3px solid orange;
 }
-
+@media screen and (min-width: 500px) {
+  .column {
+    display: flex;
+    transition: all 1s;
+    min-height: 600px;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+  .columnParent {
+    color: "red";
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
 @media screen and (min-width: 1000px) {
-  h1{
+  h1 {
     font-size: 75px;
   }
 }

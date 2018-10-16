@@ -1,7 +1,3 @@
-.column {
-  display: block;
-  transition: all 1s;
-}
 .columnGroup-enter {
   opacity: 0.01;
 }
@@ -20,25 +16,9 @@
   transition: opacity 300ms ease-in;
 }
 
-@media screen and (min-width: 550px) {
-  .column {
-    display: inline-block;
-    width: 30%;
-  }
-}
-
 /* fullscreen desktop */
-@media screen and (min-width: 1000px) {
-  .column {
-    box-shadow: 0 0 10px 4px black;
-    margin: 6px;
-    width: 27%;
-    display: inline-block;
-    padding-left: 2px;
-    padding-right: 2px;
-    transition: 0.5s ease-in-out;
-  }
 
+@media screen and (min-width: 1200px) {
   .column:hover {
     width: 42%;
     position: relative;
@@ -47,6 +27,4 @@
   .hidden {
     display: inline-block;
   }
-}
-@media screen and (min-width: 645px) {
 }

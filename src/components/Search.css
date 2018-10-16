@@ -3,8 +3,13 @@
   margin-left: auto;
   margin-right: auto;
 }
+.inputFilter {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
 .loading {
-  animation: rotateEdit .5s linear infinite forwards;
+  animation: rotateEdit 0.5s linear infinite forwards;
 }
 
 @keyframes rotateEdit {
@@ -16,19 +21,13 @@
     transform: rotate(0deg);
   }
 }
-.searchForm {
-  margin-bottom: 5px;
-  width: 100%;
-}
-.searchForm > #filterSearchBtn {
-  font-size: 20px;
-}
 
 #searchCog {
   color: orange;
   position: relative;
   top: 10px;
   font-size: 50px;
+  display: none;
 }
 
 .initialForm {
@@ -40,48 +39,19 @@
   transform: translate(-50%, -50%);
 }
 
-.initialForm > button,
-.searchForm > button {
-  padding: 0 5px;
-  border: 0;
-}
-
-.initialForm > button {
-  height: 55px;
-  background: #3498db;
-  font-size: 30px;
-}
-.searchForm > button {
-  padding: 0 10px;
-  height: 35px;
-  color: white;
-  transition: 0.5s;
-}
-
-.searchForm > button:hover {
-  background: rgba(52, 152, 219, 1);
-}
-
 /* initial size of search text input */
 .initialSize {
-  margin: auto;
   text-align: center;
-  /* width: 55%; */
-  /* display: block; */
   font-size: 25px;
   height: 55px;
   border: 0;
   padding: 0 5px;
 }
 #filterSearchBtn {
-  margin-right: 2px;
   background: #3498db;
-  margin: 0 2px;
   font-size: 25px;
-}
-.initialSizeBtn {
-  width: 30%;
-  display: inline-block;
+  border: 0;
+  margin-left: 3px;
 }
 
 /* size of input after a search has been sent */
@@ -91,22 +61,29 @@
   margin: auto;
   height: 35px;
   border: 0;
-  width: 45%;
   padding: 0 5px;
 }
 
 .initialSizeBtn {
   color: white;
   background: #3498db;
-  transition: 0.4s;
-  margin-top: 5px;
-  margin-left: auto;
-  margin-right: auto;
   text-align: center;
+  padding: 15px 30px;
+  border: 0;
+  margin-left: 1px;
+  font-size: 20px;
+  box-shadow: 0 0.5rem 2rem black;
+  transition: box-shadow 0.1s;
 }
 
-.initialSizeBtn:hover {
-  background: #3498db;
+.initialSizeBtn:active {
+  box-shadow: 0 0.125rem 1rem black;
+}
+
+.initialSizeBtn:active,
+#filterSearchBtn:active,
+.searchedSizeBtn:active {
+  background: orange;
 }
 
 #initialCog {
@@ -120,6 +97,15 @@
 .searchedSizeBtn {
   background: #3498db;
   font-size: 20px;
+  height: 35px;
+  border: 0;
+  font-weight: bold;
+  box-shadow: 0 0.25rem 1rem black;
+  transition: box-shadow 0.1s;
+}
+
+.searchedSizeBtn:active {
+  box-shadow: none;
 }
 #searchCog {
   margin: 2px;
@@ -145,7 +131,6 @@
     color: white;
     width: 13.5%;
     background: #3498db;
-    transition: 0.5s;
   }
 
   .searchedSize {
@@ -161,7 +146,6 @@
     font-size: 30px;
     color: white;
     background: #3498db;
-    transition: 0.5s;
   }
 
   #filterIcon {

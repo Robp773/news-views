@@ -1,12 +1,11 @@
 .headline {
-  /* background: grey; */
   font-size: 20px;
   height: 25px;
   margin-top: 2px;
   margin-bottom: 3px;
   overflow: -webkit-paged-x;
   overflow-x: hidden;
-  transition: ease-in-out 0.5s;
+  border-bottom: 1px solid gray;
 }
 
 .mobileHideBtns {
@@ -14,19 +13,17 @@
 }
 
 .mobileShowBtns {
-  display: inline-block;
+  display: block;
 }
 
 .expanded {
   font-size: 20px;
-  background: rgba(0, 0, 0, 0.55);
-  border: 1px solid black;
-  margin-top: 3px;
-  margin-bottom: 3px;
+  background: rgba(0, 0, 0, 0.35);
+
   overflow: -webkit-paged-x;
   overflow-x: hidden;
-  transition: ease-in-out 0.5s;
   height: fit-content;
+  border-bottom: 1px solid gray;
 }
 .headlineLink {
   margin: auto;
@@ -61,6 +58,10 @@
   border: 0;
   color: white;
   margin: 0;
+}
+
+.mobileExpandBtn:focus{
+  outline: none;
 }
 
 .svg-inline--fa {
