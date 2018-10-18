@@ -29,7 +29,7 @@ export class Main extends React.Component {
   render () {
     if (!this.state.initialSearch) {
       return (
-        <div id='startScreen'>
+        <div className='initialView'>
           <h1>News Views</h1>
           <Search
             sources={this.state.sourcesArray}
@@ -38,37 +38,38 @@ export class Main extends React.Component {
             fullState={this.props.fullState} />
         </div>
       )
-    }
-    // following searches
-    return (
-      <div className='main'>
-        <Search
-          sources={this.state.sourcesArray}
-          setInitialSearch={false}
-          size='searchedSize'
-          fullState={this.props.fullState} />
-        <div className='columnParent'>
-          <NewsColumn
-            sourceNum='sourceOne'
-            loading={this.props.fullState.loading}
-            site={this.props.fullState['sourceOne'].site}
-            siteUrl={this.props.fullState['sourceOne'].site}
-            stateObj={this.props.fullState['sourceOne']} />
-          <NewsColumn
-            sourceNum='sourceTwo'
-            loading={this.props.fullState.loading}
-            site={this.props.fullState['sourceTwo'].site}
-            siteUrl={this.props.fullState['sourceTwo'].site}
-            stateObj={this.props.fullState['sourceTwo']} />
-          <NewsColumn
-            sourceNum='sourceThree'
-            loading={this.props.fullState.loading}
-            site={this.props.fullState['sourceThree'].site}
-            siteUrl={this.props.fullState['sourceThree'].site}
-            stateObj={this.props.fullState['sourceThree']} />
+    }else {
+      // following searches
+      return (
+        <div className='main'>
+          <Search
+            sources={this.state.sourcesArray}
+            setInitialSearch={false}
+            size='searchedSize'
+            fullState={this.props.fullState} />
+          <div className='columnParent'>
+            <NewsColumn
+              sourceNum='sourceOne'
+              loading={this.props.fullState.loading}
+              site={this.props.fullState['sourceOne'].site}
+              siteUrl={this.props.fullState['sourceOne'].site}
+              stateObj={this.props.fullState['sourceOne']} />
+            <NewsColumn
+              sourceNum='sourceTwo'
+              loading={this.props.fullState.loading}
+              site={this.props.fullState['sourceTwo'].site}
+              siteUrl={this.props.fullState['sourceTwo'].site}
+              stateObj={this.props.fullState['sourceTwo']} />
+            <NewsColumn
+              sourceNum='sourceThree'
+              loading={this.props.fullState.loading}
+              site={this.props.fullState['sourceThree'].site}
+              siteUrl={this.props.fullState['sourceThree'].site}
+              stateObj={this.props.fullState['sourceThree']} />
+          </div>
         </div>
-      </div>
-    )
+      )
+    }
   }
 }
 
