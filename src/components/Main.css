@@ -220,7 +220,7 @@ h1 {
   }
   .columnParent {
     width: 100%;
-    margin: auto;
+    margin: 20px auto;
     box-shadow: none;
     padding: 0;
     flex-direction: row;
