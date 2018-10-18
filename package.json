@@ -9,9 +9,10 @@
     "@fortawesome/react-fontawesome": "^0.1.2",
     "count-words-occurrence": "^1.0.0",
     "normalize.css": "^8.0.0",
-    "react": "^16.2.0",
+    "react": "^16.3.2",
     "react-d3-cloud": "^0.6.0",
-    "react-dom": "^16.2.0",
+    "react-dom": "^16.3.2",
+    "react-notifications": "^1.4.3",
     "react-redux": "^5.0.6",
     "react-scripts": "1.1.0",
     "redux": "^3.7.2",
@@ -23,12 +24,6 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
-  },
-  "devDependencies": {},
-  "main": "index.js",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Robp773/news-views.git"
   },
   "author": "",
   "license": "ISC",
