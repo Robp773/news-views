@@ -5,7 +5,7 @@
   margin-bottom: 3px;
   overflow: -webkit-paged-x;
   overflow-x: hidden;
-  border-bottom: 1px solid gray;
+  border-bottom: 1px solid orange;
 }
 
 .mobileHideBtns {
@@ -18,12 +18,10 @@
 
 .expanded {
   font-size: 20px;
-  background: rgba(0, 0, 0, 0.35);
-
   overflow: -webkit-paged-x;
   overflow-x: hidden;
   height: fit-content;
-  border-bottom: 1px solid gray;
+  border-bottom: 1px solid orange;
 }
 .headlineLink {
   margin: auto;
@@ -56,16 +54,23 @@
   background: rgba(0, 0, 0, 0);
   float: right;
   border: 0;
-  color: white;
+  color: #3498db;
   margin: 0;
 }
 
-.mobileExpandBtn:focus{
+.mobileExpandBtn:focus {
   outline: none;
 }
 
 .svg-inline--fa {
   font-size: 20px;
+}
+
+@media screen and (min-width: 750px) {
+  .headline,
+  .expanded {
+    border-bottom: 1px solid gray;
+  }
 }
 
 @media screen and (min-width: 1000px) {
@@ -75,20 +80,28 @@
   .mobileExpandBtn {
     display: none;
   }
+  ::-webkit-scrollbar {
+    background: transparent;
+    width: 0px;
+  }
   .headline {
-    background: rgba(0, 0, 0, 0.25);
     padding: 10px;
     font-size: 20px;
     height: auto;
-    margin: 2px;
+    margin: 10px;
     max-height: 45px;
     transition: ease-out 0.5s;
     transition-delay: 0.25s;
+    border: 0;
+    border-left: 1px solid transparent;
+    border-right: 1px solid transparent;
   }
   .headline:hover {
     background: rgba(0, 0, 0, 0.55);
     max-height: 17vh;
     overflow: auto;
+    border-left: 1px solid orange;
+    border-right: 1px solid orange;
   }
 
   .headlineLink {

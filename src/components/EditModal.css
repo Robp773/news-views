@@ -1,22 +1,23 @@
 #modalBG {
   background: rgba(56, 56, 56, 0.75);
-  height: 100vh;
   width: 100%;
+  height: 100vh;
   position: absolute;
-  z-index: 100;
+  top: 50%;
+  z-index: 1;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  overflow: auto;
 }
 #resultsParent {
-  position: relative;
-  width: 95%;
-  top: 50%;
   margin: auto;
 }
 
 .formSection {
   margin: auto;
   background: white;
-  width: 75%;
 }
+
 #exitBtn {
   position: absolute;
   top: 3px;
@@ -26,13 +27,15 @@
 #editForm {
   box-shadow: 1px 1px 10px 3px black;
   background: white;
-  width: 95%;
-  text-align: center;
   font-weight: bold;
-  padding: 15px;
-  position: absolute;
-  top: 20%;
-  left: 2.5%;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  margin: 5% auto;
+  position: relative;
 }
 
 label {
@@ -43,7 +46,7 @@ label {
 .filterInput {
   border: 1px solid gray;
   text-align: center;
-  width: 40%;
+  /* width: 40%; */
   font-weight: bold;
   margin: 1px auto;
 }
@@ -80,14 +83,16 @@ label {
 }
 
 @media screen and (min-width: 1000px) {
-  #editForm {
-    width: 20%;
-    left: 40%;
+   #editForm {
+   font-size: 20px;
   }
   #resultsParent {
-    position: relative;
-    width: 95%;
+    width: 75%;
     margin: auto;
-    top: 50%;
+    /* top: 50%; */
+  }
+
+  #modalBG{
+    height: 100vh;
   }
 }

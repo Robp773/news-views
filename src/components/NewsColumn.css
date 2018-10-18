@@ -1,8 +1,13 @@
 .column{
-  margin: 10px auto;
+  /* margin: 20px 15px; */
+  margin-bottom: 30px;
+  background: rgba(0,0,0, .5);
+  box-shadow: 0 1rem 3rem black;
 }
 
-.columnGroup-enter {
+
+
+/* .columnGroup-enter {
   opacity: 0.01;
 }
 
@@ -18,7 +23,7 @@
 .columnGroup-leave.columnGroup-leave-active {
   opacity: 0.01;
   transition: opacity 300ms ease-in;
-}
+} */
 
 /* fullscreen desktop */
 
