@@ -20,6 +20,7 @@
   },
   "scripts": {
     "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
@@ -30,5 +31,8 @@
   "bugs": {
     "url": "https://github.com/Robp773/news-views/issues"
   },
-  "description": ""
+  "description": "",
+  "devDependencies": {
+    "gh-pages": "^2.0.1"
+  }
 }
