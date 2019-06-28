@@ -2,16 +2,11 @@
   /* margin: 20px 15px; */
   margin-bottom: 30px;
   background: rgba(0,0,0, .5);
-  box-shadow: 0 1rem 3rem black;
 }
 
 /* fullscreen desktop */
 
 @media screen and (min-width: 1200px) {
-  .column:hover {
-    width: 42%;
-    position: relative;
-  }
 
   .hidden {
     display: inline-block;

@@ -18,7 +18,7 @@ export default class NewsColumn extends React.Component {
     }
 
     return (
-      <div className='column'>
+      <div className={`column ${this.props.sourceNum === 'sourceTwo' ? 'lightBG' : null}`}>
         <ColumnHeader key={this.props.site} site={this.props.site} mainWords={this.props.stateObj.mainWords} />
         <ColumnText
           key={this.props.sourceNum}

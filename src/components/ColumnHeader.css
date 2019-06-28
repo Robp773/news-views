@@ -2,10 +2,6 @@
   width: 95%;
 }
 
-.header {
-  border-bottom: 1px solid orange;
-}
-
 .header > h2 {
   padding: 0;
   border-bottom: 2px solid orange;
@@ -29,9 +25,7 @@ h2 {
 }
 
 @media screen and (min-width: 750px) {
-  .header {
-    border-bottom: 1px solid gray;
-  }
+
 }
 
 @media screen and (min-width: 1000px) {

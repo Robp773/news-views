@@ -16,7 +16,7 @@ export class Search extends React.Component {
     this.state = {
       searchNames: ["CNN", "MSNBC", "FOX"],
       searchParams: {
-        sortBy: "publishedAt",
+        sortBy: "relevancy",
         resultsLimit: 5,
         sourcesArray: ["cnn", "msnbc", "fox-news"]
       }
@@ -62,7 +62,6 @@ export class Search extends React.Component {
           return res.json();
         })
         .then(response => {
-          console.log(response);
           let titleAndUrl = [];
           let descriptionArray = [];
 
