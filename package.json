@@ -16,7 +16,7 @@
     "react-redux": "^5.0.6",
     "react-scripts": "1.1.0",
     "redux": "^3.7.2",
-    "wordfrequenter": "0.0.4"
+    "wordfrequenter": "1.0.0"
   },
   "scripts": {
     "predeploy": "npm run build",
